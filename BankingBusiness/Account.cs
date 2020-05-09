@@ -3,7 +3,7 @@ using System.Text;
 
 namespace BankingBusiness
 {
-    public abstract class Account
+    public class Account
     {
         //Properties
 
