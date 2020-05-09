@@ -1,5 +1,5 @@
 ### Description
-In this project followings gave been done:
+In this project followings have been done using Object Oriented Programming paradigm:
 - Create and incorporate multiple classes, both abstract and concrete, that use inheritance to simplify the design of an application
 - Build software components (the classes) to precise specifications to allow them to be incorporated into software developed by someone else.
 ### Background
