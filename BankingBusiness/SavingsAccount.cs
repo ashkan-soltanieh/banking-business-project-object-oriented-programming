@@ -63,15 +63,8 @@ namespace BankingBusiness
         public override void Deposit(decimal amount)
         {
             base.Deposit(amount);
-            if (Balance < MinimumBalance)
-            {
-                isBelowMinimumBalance = true;
-            }
-            else
-            {
-                isBelowMinimumBalance = false;
-            }
         }
+
         public override void Withdraw(decimal amount)
         {
             base.Withdraw(amount);
@@ -79,16 +72,17 @@ namespace BankingBusiness
             {
                 isBelowMinimumBalance = true;
             }
-            else
-            {
-                isBelowMinimumBalance = false;
-            }
         }
+
         public override void AddMonthlyInterest()
         {
             if(!isBelowMinimumBalance)
             {
                 base.AddMonthlyInterest();
+            }
+            else if(Balance > MinimumBalance)
+            {
+                isBelowMinimumBalance = false;
             }
         }
 

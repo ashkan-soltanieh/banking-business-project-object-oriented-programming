@@ -44,12 +44,15 @@ namespace BankingBusiness
             }
             set
             {
-                if (value <= 0)
+                if (value <= 0 || value > 1)
                 {
                     throw new ArgumentOutOfRangeException("Non-Positive Interest Rate");
                 }
-
-                interestRate = value / 100;
+                
+                else
+                {
+                    interestRate = value;
+                }
             }
         }
         private decimal balance;
@@ -129,10 +132,10 @@ namespace BankingBusiness
         public override string ToString()
         {
             StringBuilder userDisplay = new StringBuilder();
-            userDisplay.AppendLine($"Account Name: {AccountName,20}");
+            userDisplay.AppendLine($"Account Name: {AccountName}");
             userDisplay.AppendLine($"Account Number: {AccountNumber,20}");
             userDisplay.AppendLine($"Balance: {Balance, 20:C2}");
-            userDisplay.AppendLine($"Interest Rate: {InterestRate,19:N2}%");
+            userDisplay.AppendLine($"Interest Rate: {InterestRate * 100,19:N2}%");
             return userDisplay.ToString();
         }
 

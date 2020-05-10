@@ -64,14 +64,6 @@ namespace BankingBusiness
         public override void Deposit(decimal amount)
         {
             base.Deposit(amount);
-            if(Balance < 0)
-            {
-                isNegativeBalance = true;
-            }
-            else
-            {
-                isNegativeBalance = false;
-            }
         }
 
         public override void Withdraw(decimal amount)
@@ -94,7 +86,6 @@ namespace BankingBusiness
             else
             {
                 Balance -= amount;
-                isNegativeBalance = false;
             }
         }
 
@@ -103,6 +94,10 @@ namespace BankingBusiness
             if (!isNegativeBalance)
             {
                 base.AddMonthlyInterest();
+            }
+            else if(Balance > 0)
+            {
+                isNegativeBalance = false;
             }
         }
 
